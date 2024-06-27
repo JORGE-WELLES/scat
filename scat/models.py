@@ -32,8 +32,11 @@ class Atividades(models.Model):
 
 
 class Agenda(models.Model):
-    acnpjcli = models.ForeignKey(Cliente, max_length=14)
-    acpftec = models.ForeignKey(Tecnico, max_length=11)
-    aidativ = models.ForeignKey(Atividades, max_length=int)
+    acnpjcli = models.ForeignKey(
+        Cliente, max_length=14, on_delete=models.CASCADE)
+    acpftec = models.ForeignKey(
+        Tecnico, max_length=11, on_delete=models.CASCADE)
+    aidativ = models.ForeignKey(
+        Atividades, max_length=int, on_delete=models.CASCADE)
     dataserv = models.DateField(null=False, blank=False)
     datacri = models.DateField(default=datetime.now, blank=True)
